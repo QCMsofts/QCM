@@ -4,11 +4,73 @@
   
     
     <entry>
-      <title>测试</title>
-      <link href="/2013/09/08/test/"/>
-      <url>/2013/09/08/test/</url>
+      <title>利用单摆测量重力加速度(安卓App方案)</title>
+      <link href="/2020/11/11/t-to-g-android-app/"/>
+      <url>/2020/11/11/t-to-g-android-app/</url>
       
-        <content type="html"><![CDATA[<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p><img src="/2013/09/08/test/QCM222.png" alt="文章插入图片测试"></p><h2 id="文章-Front-matter-介绍"><a href="#文章-Front-matter-介绍" class="headerlink" title="文章 Front-matter 介绍"></a>文章 Front-matter 介绍</h2><h3 id="Front-matter-选项详解"><a href="#Front-matter-选项详解" class="headerlink" title="Front-matter 选项详解"></a>Front-matter 选项详解</h3><p><code>Front-matter</code> 选项中的所有内容均为<strong>非必填</strong>的。但我仍然建议至少填写 <code>title</code> 和 <code>date</code> 的值。</p><table><thead><tr><th>配置选项</th><th>默认值</th><th>描述</th></tr></thead><tbody><tr><td>title</td><td><code>Markdown</code> 的文件标题</td><td>文章标题，强烈建议填写此选项</td></tr><tr><td>date</td><td>文件创建时的日期时间</td><td>发布时间，强烈建议填写此选项，且最好保证全局唯一</td></tr><tr><td>author</td><td>根 <code>_config.yml</code> 中的 <code>author</code></td><td>文章作者</td></tr><tr><td>img</td><td><code>featureImages</code> 中的某个值</td><td>文章特征图，推荐使用图床(腾讯云、七牛云、又拍云等)来做图片的路径.如: <code>http://xxx.com/xxx.jpg</code></td></tr><tr><td>top</td><td><code>true</code></td><td>推荐文章（文章是否置顶），如果 <code>top</code> 值为 <code>true</code>，则会作为首页推荐文章</td></tr><tr><td>cover</td><td><code>false</code></td><td><code>v1.0.2</code>版本新增，表示该文章是否需要加入到首页轮播封面中</td></tr><tr><td>coverImg</td><td>无</td><td><code>v1.0.2</code>版本新增，表示该文章在首页轮播封面需要显示的图片路径，如果没有，则默认使用文章的特色图片</td></tr><tr><td>password</td><td>无</td><td>文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 <code>password</code> 的值，该值必须是用 <code>SHA256</code> 加密后的密码，防止被他人识破。前提是在主题的 <code>config.yml</code> 中激活了 <code>verifyPassword</code> 选项</td></tr><tr><td>toc</td><td><code>true</code></td><td>是否开启 TOC（文章目录），可以针对某篇文章单独关闭 TOC 的功能。前提是在主题的 <code>config.yml</code> 中激活了 <code>toc</code> 选项</td></tr><tr><td>mathjax</td><td><code>false</code></td><td>是否开启数学公式支持 ，本文章是否开启 <code>mathjax</code>，且需要在主题的 <code>_config.yml</code> 文件中也需要开启才行</td></tr><tr><td>summary</td><td>无</td><td>文章摘要，自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要</td></tr><tr><td>categories</td><td>无</td><td>文章分类，本主题的分类表示宏观上大的分类，只建议一篇文章一个分类</td></tr><tr><td>tags</td><td>无</td><td>文章标签，一篇文章可以多个标签</td></tr><tr><td>reprintPolicy</td><td>cc_by</td><td>文章转载规则， 可以是 cc_by, cc_by_nd, cc_by_sa, cc_by_nc, cc_by_nc_nd, cc_by_nc_sa, cc0, noreprint 或 pay 中的一个</td></tr></tbody></table><blockquote><p><strong>注意</strong>:</p></blockquote><blockquote><ol><li>如果 <code>img</code> 属性不填写的话，文章特色图会根据文章标题的 <code>hashcode</code> 的值取余，然后选取主题中对应的特色图片，从而达到让所有文章都的特色图<strong>各有特色</strong>。</li><li><code>date</code> 的值尽量保证每篇文章是唯一的，因为本主题中 <code>Gitalk</code> 和 <code>Gitment</code> 识别 <code>id</code> 是通过 <code>date</code> 的值来作为唯一标识的。</li><li>如果要对文章设置阅读验证密码的功能，不仅要在 Front-matter 中设置采用了 SHA256 加密的 password 的值，还需要在主题的 <code>_config.yml</code> 中激活了配置。有些在线的 SHA256 加密的地址，可供你使用：<a href="http://tool.oschina.net/encrypt?type=2" target="_blank" rel="noopener">开源中国在线工具</a>、<a href="http://encode.chahuo.com/" target="_blank" rel="noopener">chahuo</a>、<a href="http://tool.chinaz.com/tools/hash.aspx" target="_blank" rel="noopener">站长工具</a>。</li><li>您可以在文章md文件的 front-matter 中指定 reprintPolicy 来给单个文章配置转载规则</li></ol></blockquote><p>以下为文章的 <code>Front-matter</code> 示例。</p><h3 id="最简示例"><a href="#最简示例" class="headerlink" title="最简示例"></a>最简示例</h3><pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">---</span><span class="token key atrule">title</span><span class="token punctuation">:</span> typora<span class="token punctuation">-</span>vue<span class="token punctuation">-</span>theme主题介绍<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2018-09-07 09:25:00</span><span class="token punctuation">---</span></code></pre><h3 id="最全示例"><a href="#最全示例" class="headerlink" title="最全示例"></a>最全示例</h3><pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">---</span><span class="token key atrule">title</span><span class="token punctuation">:</span> typora<span class="token punctuation">-</span>vue<span class="token punctuation">-</span>theme主题介绍<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2018-09-07 09:25:00</span><span class="token key atrule">author</span><span class="token punctuation">:</span> 赵奇<span class="token key atrule">img</span><span class="token punctuation">:</span> /source/images/xxx.jpg<span class="token key atrule">top</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span class="token key atrule">cover</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span class="token key atrule">coverImg</span><span class="token punctuation">:</span> /images/1.jpg<span class="token key atrule">password</span><span class="token punctuation">:</span> 8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92<span class="token key atrule">toc</span><span class="token punctuation">:</span> <span class="token boolean important">false</span><span class="token key atrule">mathjax</span><span class="token punctuation">:</span> <span class="token boolean important">false</span><span class="token key atrule">summary</span><span class="token punctuation">:</span> 这是你自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要<span class="token key atrule">categories</span><span class="token punctuation">:</span> Markdown<span class="token key atrule">tags</span><span class="token punctuation">:</span>  <span class="token punctuation">-</span> Typora  <span class="token punctuation">-</span> Markdown<span class="token punctuation">---</span></code></pre><h3 id="欢迎"><a href="#欢迎" class="headerlink" title="欢迎"></a>欢迎</h3><p> <strong>青春美软件工作室</strong>欢迎您！<br> <strong>青春美</strong> 成立于2003年，由武汉市汉口北高中靖老师业余组建，致力于教学软件开发和中小学编程教育。</p>]]></content>
+        <content type="html"><![CDATA[<center><font face="黑体" size="5">利用单摆测量重力加速度</font></center><center><font face="黑体" size="5">(安卓App方案)</font></center><center><font face="黑体" size="4">武汉市汉口北高级中学</font></center><center><font face="黑体" size="4">物理组 信息中心</font></center><center><font face="黑体" size="4">2020年11月10日</font></center><h3 id="一、软件简介"><a href="#一、软件简介" class="headerlink" title="一、软件简介"></a><center>一、软件简介</center></h3><blockquote><p>　　传统的单摆实验中，多是使用人工计数及秒表手动计时的方法，并且实验数据的处理也是由人工来完成的。这种方式，不仅费时费力，还会存在较大的误差。<br>　　本程序利用手机红外距离传感器自动记录单摆摆动的总时间和周期数，并实时进行数据处理，简化实验操作，减小实验误差。<br><img src="/2020/11/11/t-to-g-android-app/1.png" alt><br>　　本程序利用<a href="https://app.wxbit.com/" target="_blank" rel="noopener">App Inventor 2 WxBit 汉化版</a>制作。<br>　　App Inventor简称ai，ai是一个可视化的安卓应用制作平台，用户使用浏览器打开ai平台网站（App Inventor 2 WxBit 汉化版，简称WxBit 版，汉化并增强的 App Inventor 2 服务器。），通过拖拽组件和逻辑块，即可完成安卓应用的制作。<br>　　由于WxBit并非谷歌官方认定的中国区服务器，故部分手机安全软件可能会报毒。但本人以人格担保，此Apk文件安全可靠。</p></blockquote><h3 id="二、下载地址"><a href="#二、下载地址" class="headerlink" title="二、下载地址"></a><center>二、下载地址</center></h3><blockquote><p>　　百度网盘下载：<br>　　　　链接: <a href="https://pan.baidu.com/s/1GCEUYiyuq8BEQXzGSJY4JQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1GCEUYiyuq8BEQXzGSJY4JQ</a><br>　　　　提取码: <code>dwit</code><br>　　微信扫码下载：<br><img src="/2020/11/11/t-to-g-android-app/2.jpg" alt></p></blockquote><h3 id="三、程序设计"><a href="#三、程序设计" class="headerlink" title="三、程序设计"></a><center>三、程序设计</center></h3><blockquote><p>　　本程序基本原理是，利用手机红外距离传感器，置于摆球摆动最低点的下方，感应摆球经过最低点的时间和次数，从而比较方便地获得摆球摆动的总时间和周期数。需要源程序的可以找我们复制一份，大家一起研究。本程序部分代码如下：<br>组件设计：<br><img src="/2020/11/11/t-to-g-android-app/3.png" alt><br>逻辑设计：<br><img src="/2020/11/11/t-to-g-android-app/4.png" alt><br><img src="/2020/11/11/t-to-g-android-app/5.png" alt><br><img src="/2020/11/11/t-to-g-android-app/6.png" alt><br><img src="/2020/11/11/t-to-g-android-app/7.png" alt></p></blockquote><h3 id="四、使用说明"><a href="#四、使用说明" class="headerlink" title="四、使用说明"></a><center>四、使用说明</center></h3><blockquote><p>　　1.准备一台安卓系统的手机，将自动关屏时间设置为较长时间（建议设为10分钟）。<br>　　2.手机下载、安装并运行此App。<br>　　3.用手指在手机听筒附近扫动，若屏幕出现绿色字符“检测到摆球”，则表明手指刚好覆盖着手机距离传感器。以此方法确定手机距离传感器的位置。<br>　　4.按照传统实验方案安装单摆实验装置，但是注意在摆球摆动的平衡位置下方要设置一个用于安放手机的平台（可以直接将摆球摆动的平衡位置调整至桌面上方约1cm处，或在摆球摆动的平衡位置下方垫东西）。<br>　　5.测量摆长（摆长不能太短，建议1m左右），将摆长数据填入手机App的输入框中（单位为米）。<br>　　6.使摆球静止于平衡位置，将手机距离传感器置于摆球下方约0.5cm处。若屏幕出现绿色字符“检测到摆球”，则表明已经正确安放。<br>　　7.使摆球做单摆运动（摆角不宜过大，建议5度以内）。<br>　　8.待摆球摆动稳定后，点击“测量”按钮，开始测量。此时手机屏幕将实时显示摆球摆动的总时间、周期数、周期以及按照单摆周期公式的变型式 [ g=L(2π/T)² ]计算出的当地重力加速度。<br>　　9.“测量”按钮在被点击后会自动变成“重测”按钮。点击“重测”按钮，除摆长外的各项数据将会清零，同时立即开始重新测量。<br>　　10.点击“停止”按钮，结束测量过程，手机屏幕上留下测量所得的各项数据，包括最后求得的当地重力加速度。<br><img src="/2020/11/11/t-to-g-android-app/8.png" alt></p></blockquote><h3 id="五、技术交流"><a href="#五、技术交流" class="headerlink" title="五、技术交流"></a><center>五、技术交流</center></h3><blockquote><p>　　使用过程中发现任何问题，或者有什么好的建议，可以共同讨论，请在本页下方留言。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 单摆 </tag>
+            
+            <tag> 重力加速度 </tag>
+            
+            <tag> Android </tag>
+            
+            <tag> APP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>智凯中医太极养生交流会—武当山站</title>
+      <link href="/2020/07/03/zkzytjysjlhwdsz/"/>
+      <url>/2020/07/03/zkzytjysjlhwdsz/</url>
+      
+        <content type="html"><![CDATA[<center><font face="黑体" size="5">智凯中医太极养生交流会</font></center><center><font face="黑体" size="5">——武当山站</font></center><center>　</center><p>　　太极拳是中国武术文化发展过程中产生的一优秀拳种。太极拳具有形式多样、内容丰富、动作柔和圆滑等特点，其整体动作刚柔并济，而其运动形式体现了中医养生之道。<br>　　师父曹智凯多次提及，把脉扎针，患者的病气极易弥散至医者之身。故凡医者，均需勤加练气修身，强健体魄，以御病邪。而太极拳正是练气强身之首选。本次太极养生交流会，因师父及门内众多师兄师姐多次提议而促成。</p><p><img src="/2020/07/03/zkzytjysjlhwdsz/1.jpg" alt></p><p>　　中医学认为，气与血是人体内最基本的物质，它们构成人体和维持人体的生命活动。气血的生成依赖于脾胃的化生，脾胃为后天之本，肾为先天之本，先天后天相互滋养，从而加强了脾胃的运化功能。太极拳可以增强脾胃和消化系统的功能锻炼。脾的位置在腹部，肾的位置在腰部，“腰”是太极拳运动中的重要部位，在一些太极拳的歌诀中也强调腰为重要部位，如:“生命源头在腰际，咳咳留心在腰间，腹内松静气腾然，尾间中正神灌顶，气若车轮，腰如车轴”等。</p><p><img src="/2020/07/03/zkzytjysjlhwdsz/2.png" alt></p><p>　　从太极图形中可以看出，阳中有阴，阴中有阳，阴阳各半，体现阴阳之间相互转化、平衡协调的关系，也体现了太极拳的拳法思想。《素问》云:“阴阳之要，阳密乃固，两者不和，若春无秋……阴平阳秘，精神乃治。”说明了阴阳平衡是人体健康的重中之重。太极拳运动中，平衡人体内的阴阳主要通过虚与实、进与退、动与静、开与合、呼与吸、起与落、屈与伸、蓄与发等方法来实现。“拳名太极，实无极自然之运行，阴阳自然之开合命名也”。</p><p><img src="/2020/07/03/zkzytjysjlhwdsz/3.jpg" alt="刘力师兄"></p><p>　　本次智凯中医太极养生交流会，将由智凯中医大师兄刘力带领大家学习陈氏心意混元二十四式传统套路，分享太极拳术修习和中医养生经验。</p><p>　　刘力师兄，从小与武术结缘，起先练习了大雁气功，后来又改练太极拳国标套路，后又拜陈氏泰斗朱天才为师，习练传统陈氏太极拳。</p><p><img src="/2020/07/03/zkzytjysjlhwdsz/4.jpg" alt="刘力师兄 童年"></p><p><img src="/2020/07/03/zkzytjysjlhwdsz/5.jpg" alt="刘力师兄 陈氏太极门生帖"></p><p>　　刘力师兄是陈氏太极拳第二十代传人，陈氏太极拳六段，拳技精湛。他带徒教拳已经十多年，不仅多年探索太极拳与中医养生之道，而且在教学实践方面积累了丰厚的经验。</p><p><img src="/2020/07/03/zkzytjysjlhwdsz/6.jpg" alt="刘力师兄 陈氏太极段位证书"></p><p><strong>↓↓↓刘力师兄 拳法演示 视频↓↓↓</strong></p><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">    <iframe src="//player.bilibili.com/player.html?bvid=BV1vV411k7id&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;">    </iframe></div><p><strong>↑↑↑刘力师兄 拳法演示 视频↑↑↑</strong></p><p><strong>↓↓↓刘力师兄 授拳现场 视频↓↓↓</strong></p><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">    <iframe src="//player.bilibili.com/player.html?bvid=BV1sK4y1s7Ju&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;">    </iframe></div><p><strong>↑↑↑刘力师兄 授拳现场 视频↑↑↑</strong></p><p>　　脊柱为轴腰旋转，左右四十五度间；<br>　　双手打开如弓架，拇指行与胸中间；<br>　　手到面前尺余远，手到裆下空一拳。</p><p>　　陈氏太极拳采取阴阳学说，以动静开合之理，与刚柔虚实之法，为轻沉迟速互练之术；拳势动作，均以螺旋进退，称缠丝劲，为陈氏独创之奥秘。陈氏太极拳是依据阴阳之理、中医经络学说及导引吐纳，并综合武术技术创编而成的。因此，练习陈氏太极可以平和阴阳，疏通经络，全面提高人体的呼吸系统、循环系统、神经系统、生殖系统、消化系统和运动系统的各项生理机能，从而起到防病，治病、健身养生的作用。</p><p><img src="/2020/07/03/zkzytjysjlhwdsz/7.jpg" alt="武当山 三清殿"></p><p>　　本次智凯中医太极养生交流会定于近期在武当山举办，武当山是中国著名的道教圣地、太极拳的发祥地、全国十大避暑胜地之一。</p><p><img src="/2020/07/03/zkzytjysjlhwdsz/8.jpg" alt="武当山"></p><p>　　本次活动面向智凯中医门内弟子，旨在“弘扬太极精神，传承中医文化，练气修身，以御病邪”。欢迎各位门内同仁踊跃报名参加！</p><h2 id="地点：武当山"><a href="#地点：武当山" class="headerlink" title="地点：武当山"></a>地点：武当山</h2><h2 id="时间：待定"><a href="#时间：待定" class="headerlink" title="时间：待定"></a>时间：待定</h2><h2 id="学费：2800元-五天-不含食宿"><a href="#学费：2800元-五天-不含食宿" class="headerlink" title="学费：2800元/五天/不含食宿"></a>学费：2800元/五天/不含食宿</h2><p>　　（原价5800元，仅智凯中医门内弟子享受此优惠价格。本次活动不招收门外社会人士。）</p><h2 id="联系人：小甘草"><a href="#联系人：小甘草" class="headerlink" title="联系人：小甘草"></a>联系人：小甘草</h2><h2 id="电话：15972901842"><a href="#电话：15972901842" class="headerlink" title="　电话：15972901842"></a>　电话：15972901842</h2><h2 id="微信："><a href="#微信：" class="headerlink" title="　微信："></a>　微信：</h2><p><img src="/2020/07/03/zkzytjysjlhwdsz/2WM.jpg" alt></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 中医 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 太极 </tag>
+            
+            <tag> 智凯中医 </tag>
+            
+            <tag> 养生 </tag>
+            
+            <tag> 武当山 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>测试</title>
+      <link href="/2013/09/07/test/"/>
+      <url>/2013/09/07/test/</url>
+      
+        <content type="html"><![CDATA[<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p><img src="/2013/09/07/test/QCM222.png" alt="文章插入图片测试"></p><h2 id="文章-Front-matter-介绍"><a href="#文章-Front-matter-介绍" class="headerlink" title="文章 Front-matter 介绍"></a>文章 Front-matter 介绍</h2><h3 id="Front-matter-选项详解"><a href="#Front-matter-选项详解" class="headerlink" title="Front-matter 选项详解"></a>Front-matter 选项详解</h3><p><code>Front-matter</code> 选项中的所有内容均为<strong>非必填</strong>的。但我仍然建议至少填写 <code>title</code> 和 <code>date</code> 的值。</p><table><thead><tr><th>配置选项</th><th>默认值</th><th>描述</th></tr></thead><tbody><tr><td>title</td><td><code>Markdown</code> 的文件标题</td><td>文章标题，强烈建议填写此选项</td></tr><tr><td>date</td><td>文件创建时的日期时间</td><td>发布时间，强烈建议填写此选项，且最好保证全局唯一</td></tr><tr><td>author</td><td>根 <code>_config.yml</code> 中的 <code>author</code></td><td>文章作者</td></tr><tr><td>img</td><td><code>featureImages</code> 中的某个值</td><td>文章特征图，推荐使用图床(腾讯云、七牛云、又拍云等)来做图片的路径.如: <code>http://xxx.com/xxx.jpg</code></td></tr><tr><td>top</td><td><code>true</code></td><td>推荐文章（文章是否置顶），如果 <code>top</code> 值为 <code>true</code>，则会作为首页推荐文章</td></tr><tr><td>cover</td><td><code>false</code></td><td><code>v1.0.2</code>版本新增，表示该文章是否需要加入到首页轮播封面中</td></tr><tr><td>coverImg</td><td>无</td><td><code>v1.0.2</code>版本新增，表示该文章在首页轮播封面需要显示的图片路径，如果没有，则默认使用文章的特色图片</td></tr><tr><td>password</td><td>无</td><td>文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 <code>password</code> 的值，该值必须是用 <code>SHA256</code> 加密后的密码，防止被他人识破。前提是在主题的 <code>config.yml</code> 中激活了 <code>verifyPassword</code> 选项</td></tr><tr><td>toc</td><td><code>true</code></td><td>是否开启 TOC（文章目录），可以针对某篇文章单独关闭 TOC 的功能。前提是在主题的 <code>config.yml</code> 中激活了 <code>toc</code> 选项</td></tr><tr><td>mathjax</td><td><code>false</code></td><td>是否开启数学公式支持 ，本文章是否开启 <code>mathjax</code>，且需要在主题的 <code>_config.yml</code> 文件中也需要开启才行</td></tr><tr><td>summary</td><td>无</td><td>文章摘要，自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要</td></tr><tr><td>categories</td><td>无</td><td>文章分类，本主题的分类表示宏观上大的分类，只建议一篇文章一个分类</td></tr><tr><td>tags</td><td>无</td><td>文章标签，一篇文章可以多个标签</td></tr><tr><td>reprintPolicy</td><td>cc_by</td><td>文章转载规则， 可以是 cc_by, cc_by_nd, cc_by_sa, cc_by_nc, cc_by_nc_nd, cc_by_nc_sa, cc0, noreprint 或 pay 中的一个</td></tr></tbody></table><blockquote><p><strong>注意</strong>:</p></blockquote><blockquote><ol><li>如果 <code>img</code> 属性不填写的话，文章特色图会根据文章标题的 <code>hashcode</code> 的值取余，然后选取主题中对应的特色图片，从而达到让所有文章都的特色图<strong>各有特色</strong>。</li><li><code>date</code> 的值尽量保证每篇文章是唯一的，因为本主题中 <code>Gitalk</code> 和 <code>Gitment</code> 识别 <code>id</code> 是通过 <code>date</code> 的值来作为唯一标识的。</li><li>如果要对文章设置阅读验证密码的功能，不仅要在 Front-matter 中设置采用了 SHA256 加密的 password 的值，还需要在主题的 <code>_config.yml</code> 中激活了配置。有些在线的 SHA256 加密的地址，可供你使用：<a href="http://tool.oschina.net/encrypt?type=2" target="_blank" rel="noopener">开源中国在线工具</a>、<a href="http://encode.chahuo.com/" target="_blank" rel="noopener">chahuo</a>、<a href="http://tool.chinaz.com/tools/hash.aspx" target="_blank" rel="noopener">站长工具</a>。</li><li>您可以在文章md文件的 front-matter 中指定 reprintPolicy 来给单个文章配置转载规则</li></ol></blockquote><p>以下为文章的 <code>Front-matter</code> 示例。</p><h3 id="最简示例"><a href="#最简示例" class="headerlink" title="最简示例"></a>最简示例</h3><pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">---</span><span class="token key atrule">title</span><span class="token punctuation">:</span> typora<span class="token punctuation">-</span>vue<span class="token punctuation">-</span>theme主题介绍<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2018-09-07 09:25:00</span><span class="token punctuation">---</span></code></pre><h3 id="最全示例"><a href="#最全示例" class="headerlink" title="最全示例"></a>最全示例</h3><pre class=" language-yaml"><code class="language-yaml"><span class="token punctuation">---</span><span class="token key atrule">title</span><span class="token punctuation">:</span> typora<span class="token punctuation">-</span>vue<span class="token punctuation">-</span>theme主题介绍<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2018-09-07 09:25:00</span><span class="token key atrule">author</span><span class="token punctuation">:</span> 赵奇<span class="token key atrule">img</span><span class="token punctuation">:</span> /source/images/xxx.jpg<span class="token key atrule">top</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span class="token key atrule">cover</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span class="token key atrule">coverImg</span><span class="token punctuation">:</span> /images/1.jpg<span class="token key atrule">password</span><span class="token punctuation">:</span> 8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92<span class="token key atrule">toc</span><span class="token punctuation">:</span> <span class="token boolean important">false</span><span class="token key atrule">mathjax</span><span class="token punctuation">:</span> <span class="token boolean important">false</span><span class="token key atrule">summary</span><span class="token punctuation">:</span> 这是你自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要<span class="token key atrule">categories</span><span class="token punctuation">:</span> Markdown<span class="token key atrule">tags</span><span class="token punctuation">:</span>  <span class="token punctuation">-</span> Typora  <span class="token punctuation">-</span> Markdown<span class="token punctuation">---</span></code></pre><h3 id="欢迎"><a href="#欢迎" class="headerlink" title="欢迎"></a>欢迎</h3><p> <strong>青春美软件工作室</strong>欢迎您！<br> <strong>青春美</strong> 成立于2003年，由武汉市汉口北高中靖老师业余组建，致力于教学软件开发和中小学编程教育。<br><a href="https://QCMaker.gitee.io/">青春美 主页</a>  </p>]]></content>
       
       
       <categories>
@@ -23,6 +85,31 @@
             <tag> 测试 </tag>
             
             <tag> Test </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2013/09/06/hello-world/"/>
+      <url>/2013/09/06/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
             
         </tags>
       
